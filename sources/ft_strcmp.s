@@ -9,23 +9,25 @@ _ft_strcmp :
 	mov rbp, rsp			;save base pointer
 	xor rax, rax			;set rax to 0
 	
-loop_start :
+_loop_start :
 
 	mov	r8b, [rdi]
 	mov r9b, [rsi]
 	cmp r8b, 0
-	je loop_end
+	je _loop_end
 	cmp r9b, 0
-	je loop_end
+	je _loop_end
 	cmp r8b, r9b
-	jne loop_end
+	jne _loop_end
 	inc rdi
 	inc rsi
-	jmp loop_start
+	jmp _loop_start
 
-loop_end :
+_loop_end :
 	sub r8b, r9b
 	movsx rax, r8b
 	mov rsp, rbp					; Restore the stack pointer
 	pop rbp							; Restore the base pointer
-	ret						
+	ret		
+					
+section .note.GNU-stack noalloc noexec nowrite progbits

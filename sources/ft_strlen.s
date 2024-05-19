@@ -12,16 +12,19 @@ _ft_strlen:
 	xor rax, rax			; Initialize the counter to 0
 	mov rcx, rdi			; Copy the pointer to the source string into rcx
 
-loop_start:
+_loop_start:
 	cmp byte [rcx], 0		; Check if the current character is null terminator
-	je loop_end				; If yes, jump to the end of the loop
+	je _loop_end				; If yes, jump to the end of the loop
 
 	inc rax          		; Increment the counter
 	inc rcx					; Move to the next character
-	jmp loop_start			; Jump back to the start of the loop
+	jmp _loop_start			; Jump back to the start of the loop
 
-loop_end:
+_loop_end:
 	mov rsp, rbp			; Restore the stack pointer
 	pop rbp					; Restore the base pointer
 
 	ret						; Return the length in rax
+
+
+section .note.GNU-stack noalloc noexec nowrite progbits

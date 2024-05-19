@@ -1,36 +1,41 @@
-[BITS 64]  ;to assemble in 64 bits
+[BITS 64]
 
+section .data
+	strlen_ptr dq _ft_strlen
+	malloc_ptr dq malloc
+	strcpy_ptr dq _ft_strcpy
 
-extern ft_strlen
-extern malloc
-extern ft_strcpy
-
-global _ft_strdup
 section .text
+	global _ft_strdup
+	extern _ft_strlen
+	extern malloc
+	extern _ft_strcpy
 
-_ft_strdup :
+_ft_strdup:	
 	push rbp
 	mov rbp, rsp
+	mov r10, rdi
+	push r10
 
-	mov 	r10, rdi
-	push 	r10
-	call	ft_strlen
-	mov 	rdi, rax
-	add		rdi, 1
-	call	malloc
-	pop		r10
-	mov		rdi, rax
-	mov		rsi, r10
-	call	ft_strcpy
+	mov rax, [rel strlen_ptr]
+	call rax
 
-	; mov 	rsi, rdi
-	; mov		rdi, r10
-	; call	extern _ft_strcpy
+	mov rdi, rax
+	add rdi, 1
 
-	
+	mov rax, [rel malloc_ptr]
+	call rax
 
+	pop r10
+	mov rdi, rax
+	mov rsi, r10
 
-	mov		rsp, rbp
-	pop		rbp
+	mov rax, [rel strcpy_ptr]
+	call rax
 
-	ret	
+	mov rsp, rbp
+	pop rbp	
+
+	ret
+
+section .note.GNU-stack noalloc noexec nowrite progbits

@@ -9,18 +9,20 @@ _ft_strcpy :
 	mov rbp, rsp			; Set the base pointer to the current stack pointer
 	mov rax, rdi
 	
-loop_start :
+_loop_start :
 	cmp byte [rsi], 0
-	je loop_end	
+	je _loop_end	
 
 	mov r8b, [rsi]					; Load the byte from the source string
 	mov [rdi], r8b					; Store the byte in the destination string
 	inc rdi							
 	inc rsi
-	jmp loop_start
+	jmp _loop_start
 
-loop_end :
+_loop_end :
 	mov byte [rdi], 0				; Null-terminate the destination string
 	mov rsp, rbp					; Restore the stack pointer
 	pop rbp							; Restore the base pointer
 	ret						
+
+section .note.GNU-stack progbits
