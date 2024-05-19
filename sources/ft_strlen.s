@@ -13,7 +13,7 @@ _ft_strlen:
 	mov rcx, rdi			; Copy the pointer to the source string into rcx
 
 _loop_start:
-	cmp byte [rcx], 0		; Check if the current character is null terminator
+	cmp byte [rcx], 0	; Check if the current character is null terminator
 	je _loop_end				; If yes, jump to the end of the loop
 
 	inc rax          		; Increment the counter

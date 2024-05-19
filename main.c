@@ -13,6 +13,7 @@ int _ft_strcmp(const char *s1, const char *s2);
 int _ft_write(int fd, const void *buf, size_t count);
 int _ft_read(int fd, void *buf, size_t count);
 char *_ft_strdup(char *str);
+int _ft_atoi_base(const char *str, char *base);
 
 int main(int argc, char **argv) {
 	size_t length = _ft_strlen(argv[1]);
@@ -34,6 +35,7 @@ int main(int argc, char **argv) {
 	printf("%p\n", str2);
 	str2 = _ft_strdup(str);
 	printf("'%s'\n", str2);
+	printf("%i\n", _ft_atoi_base(str, "abc"));
 	free(str2);
 	return 0;
 }
