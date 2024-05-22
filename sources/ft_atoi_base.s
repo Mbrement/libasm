@@ -21,7 +21,7 @@ _loop_start :
 	cmp byte [rdi], 0
 	je _loop_end
 
-	jmp _loop_extra
+	; jmp _loop_extra
 	add rdi, 1
 
 	jmp _loop_start
