@@ -21,10 +21,10 @@ _loop_start:
 	jmp _loop_start			; Jump back to the start of the loop
 
 _loop_end:
-	mov rsp, rbp			; Restore the stack pointer
-	pop rbp					; Restore the base pointer
-
+	; mov rsp, rbp			; Restore the stack pointer
+	; pop rbp					; Restore the base pointer
+	leave
 	ret						; Return the length in rax
 
 
-section .note.GNU-stack noalloc noexec nowrite progbits
+section .note.GNU-stack progbits

@@ -30,8 +30,9 @@ _error :
 
 _end :
 	
-	mov rsp, rbp
-	pop rbp
+	; mov rsp, rbp
+	; pop rbp
+	leave
 	ret
 
-section .note.GNU-stack noalloc noexec nowrite progbits
+section .note.GNU-stack progbits

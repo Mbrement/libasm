@@ -26,6 +26,7 @@ _ft_strdup:
 	mov rax, [rel malloc_ptr]
 	call rax
 
+
 	pop r10
 	mov rdi, rax
 	mov rsi, r10
@@ -33,9 +34,10 @@ _ft_strdup:
 	mov rax, [rel strcpy_ptr]
 	call rax
 
-	mov rsp, rbp
-	pop rbp	
+	; mov rsp, rbp
+	; pop rbp
 
+	leave
 	ret
 
-section .note.GNU-stack noalloc noexec nowrite progbits
+section .note.GNU-stack progbits

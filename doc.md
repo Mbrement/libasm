@@ -15,8 +15,8 @@ sequence :
 
 	; code
 
-	mov rsp, rbp
-	pop rbp
+	mov rsp, rbp				; can be both replace by a single leave instruction
+	pop rbp						;
 	ret
 ----------------------
 	create a new stack and return to the first after

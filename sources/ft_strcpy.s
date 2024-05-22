@@ -15,14 +15,15 @@ _loop_start :
 
 	mov r8b, [rsi]					; Load the byte from the source string
 	mov [rdi], r8b					; Store the byte in the destination string
-	inc rdi							
-	inc rsi
+	add rdi, 1							
+	add rsi, 1
 	jmp _loop_start
 
 _loop_end :
 	mov byte [rdi], 0				; Null-terminate the destination string
-	mov rsp, rbp					; Restore the stack pointer
-	pop rbp							; Restore the base pointer
+	; mov rsp, rbp					; Restore the stack pointer
+	; pop rbp							; Restore the base pointer
+	leave
 	ret						
 
 section .note.GNU-stack progbits
