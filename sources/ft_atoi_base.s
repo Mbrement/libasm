@@ -17,9 +17,9 @@ _ft_atoi_base:
 	pop rdi
 	mov r10, rax			;save strlen from rdi
 	cmp r10, 0
-	je _loop_end
+	je _loop_end_2
 	cmp r10, 1
-	je _loop_end
+	je _loop_end_2
 	xor r9, r9				;clear r9
 	jmp _loop_error_base
 
@@ -53,7 +53,7 @@ _loop_end :
 
 _loop_end_2 :
 	
-	mov rax, -1
+	mov rax, 0
 	leave
 	; mov rsp, rbp
 	; pop rbp
