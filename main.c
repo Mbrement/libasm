@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
 	printf("'%s'\n", str2);
 	free(str2);
 
-	int atoi_result = _ft_atoi_base(str, "0123456789");
+	int atoi_result = _ft_atoi_base("     +++-+9", "0123456789abcdef");
 	printf("%i\n", atoi_result);
 	free(str);
 	return 0;

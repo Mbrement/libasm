@@ -1,0 +1,3 @@
+.objs/
+libasm.a
+libasm_exec
