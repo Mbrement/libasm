@@ -13,9 +13,13 @@ section .text
 
 _ft_strdup:	
 	push rbp
+	
 	mov rbp, rsp
-	mov r10, rdi
-	push r10
+	
+	cmp rdi, 0
+	je _end
+	push rdi
+
 
 	mov rax, [rel strlen_ptr]
 	call rax
@@ -25,7 +29,8 @@ _ft_strdup:
 
 	mov rax, [rel malloc_ptr]
 	call rax
-
+	cmp rax, 0
+	je _end
 
 	pop r10
 	mov rdi, rax
@@ -37,6 +42,10 @@ _ft_strdup:
 	; mov rsp, rbp
 	; pop rbp
 
+	leave
+	ret
+
+_end :
 	leave
 	ret
 

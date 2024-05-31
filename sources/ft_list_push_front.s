@@ -14,21 +14,27 @@ section .text
 
 	extern _ft_create_elem
 
-ft_list_push_front :
+_ft_list_push_front :
 	push rbp				
 	mov rbp, rsp
-	
-	; make a new list element et le mettre dans rax
 
-	call _ft_create_elem
+	cmp		rdi, 0
+	je		_end
+	cmp		rsi, 0
+	je		_end
 
-	inc rax
-	inc rax
-	mov rax, [rdi]
-	dec rax
-	dec rax
+	push rdi
+	mov rdi, rsi
+	call _ft_create_elem			; rax contain the ptr to the new elem
+	cmp rax, 0
+	je _end
+	pop rdi
+	mov rsi, [rdi]
+	mov   QWORD [rax+8], rsi
+	mov [rdi], rax	
+	leave
+	ret
 
-	
-	
+_end:
 	leave
 	ret

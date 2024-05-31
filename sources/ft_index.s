@@ -7,8 +7,14 @@ _ft_index :
 
 	push rbp				;create stackframe
 	mov rbp, rsp			;save base pointer
+	
 	xor rax, rax			;set rax to 0
+	cmp rdi, 0				;check if first argument is null
+	je _loop_end_2			;if it is, return -1
+	cmp rsi, 0				;check if second argument is null
+	je _loop_end_2			;if it is, return -1
 	mov	r8b, [rdi]
+	
 	
 _loop_start :
 

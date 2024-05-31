@@ -8,6 +8,10 @@ _ft_strcpy :
 	push rbp				; Save the base pointer
 	mov rbp, rsp			; Set the base pointer to the current stack pointer
 	mov rax, rdi
+	cmp rsi, 0
+	je _end
+	cmp rdi, 0
+	je _end
 	
 _loop_start :
 	cmp byte [rsi], 0
@@ -24,6 +28,10 @@ _loop_end :
 	; mov rsp, rbp					; Restore the stack pointer
 	; pop rbp							; Restore the base pointer
 	leave
-	ret						
+	ret		
+				
+_end :
+	leave
+	ret
 
 section .note.GNU-stack progbits

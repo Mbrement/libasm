@@ -8,7 +8,11 @@ _ft_strcmp :
 	push rbp				;create stackframe
 	mov rbp, rsp			;save base pointer
 	xor rax, rax			;set rax to 0
-	
+	cmp rdi, 0				;check if first string is null
+	je _end					;if it is, return 0
+	cmp rsi, 0				;check if second string is null
+	je _end					;if it is, return 0
+
 _loop_start :
 
 	mov	r8b, [rdi]
@@ -30,5 +34,8 @@ _loop_end :
 	; pop rbp							; Restore the base pointer
 	leave
 	ret		
+_end : 	
+	leave
+	ret	
 					
 section .note.GNU-stack progbits

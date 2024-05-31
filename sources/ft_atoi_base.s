@@ -11,6 +11,10 @@ _ft_atoi_base:
 	mov rbp, rsp
 
 	xor rcx, rcx
+	cmp		rdi, 0
+	je		_loop_end
+	cmp		rsi, 0
+	je		_loop_end
 	push rdi
 	mov rdi, rsi
 	call _ft_strlen

@@ -23,7 +23,7 @@ $(OBJS_DIR)/%.o: %.c
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.s
 	mkdir -p $(@D)
-	nasm -f elf64 $< -o $@
+	nasm -f  elf64 -gdwarf $< -o $@
 
 clean:
 	rm -rf $(OBJS_DIR)

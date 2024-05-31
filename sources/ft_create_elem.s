@@ -18,18 +18,20 @@ global _ft_create_elem
 section .text
 
 _ft_create_elem :
-	push rbp				
+	push rbp			
 	mov rbp, rsp
 	push rdi
-	mov rdi, 24
+	mov rdi, 16
 	mov rax, [rel malloc_ptr]
 	call rax
 	pop rdi
-	inc rax
-	mov rax, rdi
-	inc rax
-	mov rax, 0
-	dec rax
-	dec rax
+	cmp rax, 0
+	je  _error
+	mov   [rax], rdi
+	mov   QWORD [rax+8], 0x0
 	leave
+	ret
+
+_error:
+	mov rax, 0
 	ret
