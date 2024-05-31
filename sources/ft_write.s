@@ -2,6 +2,7 @@
 
 extern __errno_location
 
+
 global _ft_write
 section .text
 
@@ -21,7 +22,7 @@ _error :
 	neg rax
 	mov rdi, rax
 
-	call  [rel __errno_location wrt ..got]  ;WOODOO MAGIC
+	call  [rel __errno_location wrt ..got]  ; WOODOO MAGIC
 	mov [rax], rdi
 	mov rax, -1
 	jmp _end
@@ -35,3 +36,4 @@ _end :
 
 
 section .note.GNU-stack progbits
+
