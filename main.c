@@ -70,12 +70,17 @@ int main(int argc, char **argv) {
 	printf ("next content'%s'\n", (char *)pouet->next->content);
 	// printf("content ptr '%p'\n", pouet2->content);
 
-	_ft_list_push_front(&pouet, "4");
-	_ft_list_push_front(&pouet, "cookie");
-	_ft_list_push_front(&pouet, "qdasdasdasdasdasasdasdasdasdasa");
+	_ft_list_push_front(&pouet, "5");
 	_ft_list_push_front(&pouet, "3");
-	_ft_list_push_front(&pouet, "1");
-	_ft_list_push_front(&pouet, "2");
+	_ft_list_push_front(&pouet, "3");
+	_ft_list_push_front(&pouet, "5");
+	_ft_list_push_front(&pouet, "3");
+	// _ft_list_push_front(&pouet, "5");
+	// _ft_list_push_front(&pouet, "cookie");
+	// _ft_list_push_front(&pouet, "qdasdasdasdasdasasdasdasdasdasa");
+	// _ft_list_push_front(&pouet, "1");
+	// _ft_list_push_front(&pouet, "1");
+	// _ft_list_push_front(&pouet, "2");
 	
 	printf("list size : %i\n", _ft_list_size(pouet));
 	
@@ -90,9 +95,10 @@ int main(int argc, char **argv) {
 	}
 	printf("%s\n", (char *)pouet->content);
 	pouet = tmp_list;
-	_ft_list_sort(&pouet, &_ft_strcmp);
+	_ft_list_sort(&pouet->next, &_ft_strcmp);
 	// int ww = _ft_list_exec(pouet->next, pouet, &_ft_strcmp);
 
+	// printf("round	 : %i\n", a);
 	while (pouet->next)
 	{	
 		t_list *tmp = pouet;

@@ -39,9 +39,6 @@ _ft_strdup:
 	mov rax, [rel strcpy_ptr]
 	call rax
 
-	; mov rsp, rbp
-	; pop rbp
-
 	leave
 	ret
 

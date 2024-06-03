@@ -30,7 +30,6 @@ _ft_list_sort :
 	je		_loop_end
 	mov		r8, rdi			;begin_list
 	mov		r9, rsi			;cmp function	
-
 	jmp		_init_loop
 
 
@@ -52,28 +51,28 @@ _loop_start :
 	push	rdi
 	mov		rsi, [rdi+8]
 	push	rsi
-	; mov		rdi, [rdi]
-	; mov		rsi, [rsi]
-	;mov		rdx, r9
+ 	mov		rdi, [rdi]
+	mov		rsi, [rsi]
+	; ;mov		rdx, r9
 	call	r9
 	pop		rsi
 	pop		rdi
 	cmp		rax, 0
-	jl		_swap
-	leave
-	ret
+	jge		_swap
 	mov		rdi, QWORD [rdi+8]
-	jmp		_loop_start
+	jmp		_loop_end
 
 
 
 _swap :
+	push 	r12
 	mov		r11, rdi
 	mov		r12, rsi
 	mov		rsi, [r11]
 	mov		rdi, [r12]
 	mov		[r11], rdi
 	mov		[r12], rsi
+	pop		r12
 	jmp		_init_loop
 
 

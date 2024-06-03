@@ -24,7 +24,7 @@ void _ft_list_push_front(t_list **begin_list, void *data);
 t_list *_ft_create_elem(void *data);
 int _ft_list_size(t_list *begin_list);
 
-void _ft_list_sort(t_list **begin_list, int (*cmp)());
+int _ft_list_sort(t_list **begin_list, int (*cmp)());
 void _ft_list_swap(t_list *a, t_list *b);
 
 int _ft_list_exec(t_list *a, t_list *b, int (*f)());
